@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useDataFetch from "./components/hooks/use-data-fetch";
 import List from "./components/List/list";
 import Details from "./components/Details/details";
+import Map from "./components/Map/map";
 import "./App.css";
 
 function App() {
@@ -22,7 +23,12 @@ function App() {
       ) : (
         <>
           <List data={listData || []} onItemClick={handleItemClick} />
-          {selectedItem && <Details data={selectedItem} />}
+          {selectedItem && (
+            <>
+              <Details data={selectedItem} />
+              <Map />
+            </>
+          )}
         </>
       )}
       {error && <div>{`We have a problem: ${error}`}</div>}
