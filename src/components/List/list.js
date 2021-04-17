@@ -2,25 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './list.css';
 
-function List({ className, data, onItemClick, selectedId }) {
+function List({ className, data, onItemClick, selectedId, render }) {
   return (
     <ul className={className ? `list ${className}` : 'list'}>
-      {data.map((record) => {
-        const { id, name, cuisine, availability } = record;
-        return (
-          <li
-            key={id}
-            className={`list__item${
-              id === selectedId ? ' list__item--selected' : ''
-            }`}
-            onClick={() => onItemClick(id)}
-          >
-            <span className="item-info__name">{name}</span>
-            <span className="item-info__cuisine">{cuisine}</span>
-            <span className="item-info__availability">{availability}</span>
-          </li>
-        );
-      })}
+      {data.map((record) =>
+        render({
+          data: record,
+          onClick: onItemClick,
+          selected: record.id === selectedId,
+        })
+      )}
     </ul>
   );
 }

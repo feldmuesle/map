@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import setupIcons from './setup-icons';
 import useDataFetch from './components/hooks/use-data-fetch';
 import List from './components/List/list';
+import ListItem from './components/ListItem/list-item';
 import Details from './components/Details/details';
 import Map from './components/Map/map';
 import './App.css';
@@ -12,11 +13,8 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [listData, isLoading, error] = useDataFetch();
 
-  console.log("listData", listData);
-
   const handleItemClick = (id) => {
     setSelectedItem(listData.find((item) => item.id === id));
-    console.log("selectedItem", selectedItem);
   };
 
   return (
@@ -30,6 +28,7 @@ function App() {
             onItemClick={handleItemClick}
             className="widget"
             selectedId={selectedItem?.id}
+            render={ListItem}
           />
           {selectedItem && (
             <>
