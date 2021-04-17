@@ -8,7 +8,7 @@ function List({ className, data, onItemClick, selectedId, render }) {
       {data.map((record) =>
         render({
           data: record,
-          onClick: onItemClick,
+          onClick: onItemClick && onItemClick,
           selected: record.id === selectedId,
         })
       )}
@@ -18,13 +18,14 @@ function List({ className, data, onItemClick, selectedId, render }) {
 
 List.defaultProps = {
   className: null,
+  onItemClick: null,
   selectedId: null,
 };
 
 List.propTypes = {
   className: PropTypes.string,
   data: PropTypes.array.isRequired,
-  onItemClick: PropTypes.func.isRequired,
+  onItemClick: PropTypes.func,
   selectedId: PropTypes.string,
 };
 

@@ -44,9 +44,7 @@ function App() {
     return (
       <List
         data={listData || []}
-        onItemClick={handleItemClick}
         className="widget"
-        selectedId={selectedItem?.id}
         render={ListItemAccordion}
       />
     );
