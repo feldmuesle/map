@@ -4,7 +4,12 @@
   width: 100%;
 }
 
-.desktop-list .widget {
+.desktop-list__list.widget {
+  margin: 10px;
+}
+
+.desktop-list__list--selected.widget,
+.desktop-list__details--open .widget {
   margin: 10px 0;
 }
 
