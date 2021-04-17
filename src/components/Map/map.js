@@ -1,21 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import GoogleMapReact from "google-map-react";
-import mapKey from "../../config/keys";
+import React from 'react';
+import PropTypes from 'prop-types';
+import GoogleMapReact from 'google-map-react';
+import mapKey from '../../config/keys';
+import Pointer from './pointer';
+import './map.css';
 
-function Pointer({ lat, lng }) {
-  return <div className="pointer">Hi there!</div>;
-}
-
-function Map({ defaultCenter, defaultZoom }) {
+function Map({ defaultCenter, defaultZoom, pointer, className }) {
   return (
-    <div className="map" style={{ height: "250px", width: "100%" }}>
+    <div className={className ? `map ${className}` : 'map'}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: mapKey }}
         defaultCenter={defaultCenter}
         defaultZoom={defaultZoom}
       >
-        <Pointer lat={59.955413} lng={30.337844} />
+        <Pointer {...pointer} />
       </GoogleMapReact>
     </div>
   );
@@ -24,9 +22,11 @@ function Map({ defaultCenter, defaultZoom }) {
 Map.defaultProps = {
   defaultCenter: {
     lat: 47.31284201306256,
-    lng: 10.11145268256571,
+    lng: 12.11145268256571,
   },
-  defaultZoom: 11,
+  defaultZoom: 3,
+  pointer: null,
+  className: null,
 };
 
 Map.propTypes = {
@@ -35,6 +35,11 @@ Map.propTypes = {
     lng: PropTypes.number,
   }).isRequired,
   defaultZoom: PropTypes.number.isRequired,
+  pointer: PropTypes.shape({
+    lat: PropTypes.number,
+    lng: PropTypes.number,
+  }),
+  className: PropTypes.string,
 };
 
 export default Map;
