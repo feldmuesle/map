@@ -6,6 +6,7 @@ import DesktopList from './components/DesktopList/desktop-list';
 import List from './components/List/list';
 import ListItem from './components/ListItem/list-item';
 import ListItemAccordion from './components/ListItemAccordion/list-item-accordion';
+import ListItemInfo from './components/ListItemInfo/list-item-info';
 import Details from './components/Details/details';
 import Map from './components/Map/map';
 import './App.css';
@@ -21,7 +22,9 @@ function App() {
       return (
         <DesktopList
           data={listData}
-          listItemComponent={ListItem}
+          listItemComponent={(props) => (
+            <ListItem key={props.data.id} {...props} render={ListItemInfo} />
+          )}
           render={({ data }) => {
             return (
               <>
@@ -40,7 +43,7 @@ function App() {
         className="widget"
         render={({ data }) => {
           return (
-            <ListItemAccordion data={data} key={data.id}>
+            <ListItemAccordion data={data} key={data.id} render={ListItemInfo}>
               <Details {...data} name={null} className="widget" />
               <Map pointer={data} className="widget" />
             </ListItemAccordion>

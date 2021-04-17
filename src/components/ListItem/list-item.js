@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './list-item.css';
 
-function ListItem({ data, onClick, selected }) {
-  const { id, name, cuisine, availability } = data;
+function ListItem({ data, onClick, selected, render }) {
+  const { id } = data;
 
   return (
     <li
@@ -11,22 +11,22 @@ function ListItem({ data, onClick, selected }) {
       className={`list-item${selected ? ' list-item--selected' : ''}`}
       onClick={() => onClick(id)}
     >
-      <div className="list-item__info">
-        <span className="item-info__name">{name}</span>
-        <span className="item-info__cuisine">{cuisine}</span>
-        <span className="item-info__availability">{availability}</span>
-      </div>
+      {render({ data })}
     </li>
   );
 }
 
+ListItem.defaultProps = {
+  selected: false,
+};
+
 ListItem.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    name: PropTypes.string,
-    cuisine: PropTypes.string,
-    availability: PropTypes.string,
   }),
+  onClick: PropTypes.func.isRequired,
+  selected: PropTypes.bool,
+  render: PropTypes.func.isRequired,
 };
 
 export default ListItem;

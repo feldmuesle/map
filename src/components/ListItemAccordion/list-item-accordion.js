@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function ListItemAccordion({ data, children }) {
+function ListItemAccordion({ data, children, render }) {
   const [isOpen, setIsOpen] = useState(false);
-  const { id, name, cuisine, availability } = data;
+  const { id } = data;
 
   return (
     <li
@@ -11,11 +11,7 @@ function ListItemAccordion({ data, children }) {
       className={`list-item${isOpen ? ' list-item--selected' : ''}`}
       onClick={() => setIsOpen((prevState) => !prevState)}
     >
-      <div className="list-item__info item-info">
-        <span className="item-info__name">{name}</span>
-        <span className="item-info__cuisine">{cuisine}</span>
-        <span className="item-info__availability">{availability}</span>
-      </div>
+      {render({ data })}
       {isOpen && <div className="list-item__details">{children}</div>}
     </li>
   );

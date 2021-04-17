@@ -1,0 +1,30 @@
+.list-item-info {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: wrap;
+  border: 1px solid #d8d8d8;
+  border-bottom: none;
+}
+
+.list-item-info span {
+  width: 33%;
+}
+
+.list-item-info--passive {
+  color: #919191;
+}
+
+.list-item-info__name {
+  font-weight: 600;
+}
+
+.list-item-info__cuisine {
+  font-style: italic;
+}
+
+.list-item-info__cuisine .fa-icon {
+  margin-right: 10px;
+  display: inline-block;
+}
