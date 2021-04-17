@@ -14,10 +14,10 @@ function Detail({ label, text, icon, url }) {
       {label && <span className="detail__label">{`${label}: `}</span>}
       {url ? (
         <a className="detail__link" href={url} target="blank">
-          {text}
+          {text || url}
         </a>
       ) : (
-        text
+        <span className="detail__text">{text || 'Not available'}</span>
       )}
     </div>
   );
@@ -25,13 +25,14 @@ function Detail({ label, text, icon, url }) {
 
 Detail.defaultProps = {
   label: null,
+  text: null,
   icon: null,
   url: null,
 };
 
 Detail.propTypes = {
   label: PropTypes.string,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   icon: PropTypes.string,
   url: PropTypes.string,
 };
