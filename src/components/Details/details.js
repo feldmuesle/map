@@ -26,7 +26,11 @@ Detail.defaultProps = {
 };
 
 Details.propTypes = {
-  data: PropTypes.object.isRequired,
+  name: PropTypes.string,
+  address: PropTypes.string.isRequired,
+  website: PropTypes.string.isRequired,
+  lastReview: PropTypes.string.isRequired,
+  lastMentioned: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
 
