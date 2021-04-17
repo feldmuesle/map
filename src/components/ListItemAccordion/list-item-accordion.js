@@ -1,26 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './list-item.css';
+import Details from '../Details/details';
+import Map from '../Map/map';
 
-function ListItem({ data, onClick, selected }) {
+function ListItemAccordion({ data, onClick, selected }) {
   const { id, name, cuisine, availability } = data;
 
   return (
     <li
       key={id}
-      className={`list-item${selected ? ' list__item--selected' : ''}`}
+      className={`list-item${selected ? ' list-item--selected' : ''}`}
       onClick={() => onClick(id)}
     >
-      <div className="list-item__info">
+      {' '}
+      <div className="list-item__info item-info">
         <span className="item-info__name">{name}</span>
         <span className="item-info__cuisine">{cuisine}</span>
         <span className="item-info__availability">{availability}</span>
       </div>
+      {selected && (
+        <div className="list-item__details">
+          <Details {...data} name={null} className="widget" />
+          <Map pointer={data} className="widget" />
+        </div>
+      )}
     </li>
   );
 }
 
-ListItem.propTypes = {
+ListItemAccordion.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string,
@@ -29,4 +37,4 @@ ListItem.propTypes = {
   }),
 };
 
-export default ListItem;
+export default ListItemAccordion;
