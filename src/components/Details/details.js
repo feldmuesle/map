@@ -2,11 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Detail from './detail';
 
-function Details({ data, className }) {
-  const { name, address, website, lastReview, lastMentioned } = data;
+function Details({
+  name,
+  address,
+  website,
+  lastReview,
+  lastMentioned,
+  className,
+}) {
   return (
     <div className={className ? `details ${className}` : 'details'}>
-      <h3 className="details__heading">{name}</h3>
+      {name && <h3 className="details__heading">{name}</h3>}
       <Detail label="Address" text={address} icon="map-marker-alt" />
       <Detail label="Website" text={website} icon="home" url={website} />
       <Detail label="Last review" text={lastReview} icon="star" />
