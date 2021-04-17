@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import useDataFetch from "./components/hooks/use-data-fetch";
-import List from "./components/List/list";
-import Details from "./components/Details/details";
-import Map from "./components/Map/map";
-import "./App.css";
+import setupIcons from './setup-icons';
+
+setupIcons();
 
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
