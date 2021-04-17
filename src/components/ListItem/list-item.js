@@ -8,7 +8,7 @@ function ListItem({ data, onClick, selected }) {
   return (
     <li
       key={id}
-      className={`list-item${selected ? ' list__item--selected' : ''}`}
+      className={`list-item${selected ? ' list-item--selected' : ''}`}
       onClick={() => onClick(id)}
     >
       <div className="list-item__info">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import List from '../List/list';
+import './desktop-list.css';
 
 function DesktopList({ classname, data, listItemComponent, render }) {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -14,12 +15,14 @@ function DesktopList({ classname, data, listItemComponent, render }) {
       <List
         data={data}
         onItemClick={handleItemClick}
-        className="desktop-list__list widget"
+        className={`widget desktop-list__list${
+          selectedItem ? '--selected' : ''
+        }`}
         selectedId={selectedItem?.id}
         render={listItemComponent}
       />
       {selectedItem && (
-        <div className="desktop-list__details">
+        <div className={`desktop-list__details${selectedItem ? '--open' : ''}`}>
           {render({ data: selectedItem })}
         </div>
       )}

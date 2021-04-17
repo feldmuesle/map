@@ -1,0 +1,21 @@
+.desktop-list {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.desktop-list .widget {
+  margin: 10px 0;
+}
+
+.desktop-list__list {
+  width: 100%;
+}
+
+.desktop-list__list--selected {
+  max-width: 58%;
+}
+
+.desktop-list__details--open {
+  max-width: 38%;
+}
