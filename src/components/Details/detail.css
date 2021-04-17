@@ -1,0 +1,11 @@
+.detail {
+  margin: 5px 0;
+}
+
+.detail__icon {
+  margin-right: 5px;
+  width: 18px;
+  display: inline-block;
+  color: #cecece;
+  text-align: center;
+}
