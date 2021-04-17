@@ -19,11 +19,16 @@ function App() {
         <span className="loading">Is loading...</span>
       ) : (
         <>
-          <List data={listData || []} onItemClick={handleItemClick} />
+          <List
+            data={listData || []}
+            onItemClick={handleItemClick}
+            className="widget"
+            selectedId={selectedItem?.id}
+          />
           {selectedItem && (
             <>
-              <Details data={selectedItem} />
-              <Map />
+              <Details data={selectedItem} className="widget" />
+              <Map pointer={selectedItem} className="widget" />
             </>
           )}
         </>
