@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import List from '../List/list';
-import ListItem from '../ListItem/list-item';
-import Details from '../Details/details';
-import Map from '../Map/map';
 
-function DesktopDetailList({ classname, data, children }) {
+function DesktopList({ classname, data, listItemComponent, render }) {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleItemClick = (id) => {
@@ -15,30 +12,29 @@ function DesktopDetailList({ classname, data, children }) {
   return (
     <div className="desktop-list">
       <List
-        data={data || []}
+        data={data}
         onItemClick={handleItemClick}
-        className="widget"
+        className="desktop-list__list widget"
         selectedId={selectedItem?.id}
-        render={ListItem}
+        render={listItemComponent}
       />
       {selectedItem && (
         <div className="desktop-list__details">
-          <Details {...selectedItem} className="widget" />
-          <Map pointer={selectedItem} className="widget" />
+          {render({ data: selectedItem })}
         </div>
       )}
     </div>
   );
 }
 
-DesktopDetailList.defaultProps = {
+DesktopList.defaultProps = {
   className: null,
   data: [],
 };
 
-DesktopDetailList.propTypes = {
+DesktopList.propTypes = {
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
 };
 
-export default DesktopDetailList;
+export default DesktopList;

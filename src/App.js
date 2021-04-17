@@ -2,9 +2,12 @@ import React from 'react';
 import setupIcons from './setup-icons';
 import useDataFetch from './components/hooks/use-data-fetch';
 import useScreenSize from './components/hooks/use-screen-size';
-import DesktopDetailList from './components/DesktopDetailList/desktop-detail-list';
+import DesktopList from './components/DesktopList/desktop-list';
 import List from './components/List/list';
+import ListItem from './components/ListItem/list-item';
 import ListItemAccordion from './components/ListItemAccordion/list-item-accordion';
+import Details from './components/Details/details';
+import Map from './components/Map/map';
 import './App.css';
 
 setupIcons();
@@ -15,7 +18,20 @@ function App() {
 
   function handleScreenSize() {
     if (screenSize > 700) {
-      return <DesktopDetailList data={listData} />;
+      return (
+        <DesktopList
+          data={listData}
+          listItemComponent={ListItem}
+          render={({ data }) => {
+            return (
+              <>
+                <Details {...data} className="widget" />
+                <Map pointer={data} className="widget" />
+              </>
+            );
+          }}
+        />
+      );
     }
 
     return (
