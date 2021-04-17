@@ -38,7 +38,14 @@ function App() {
       <List
         data={listData || []}
         className="widget"
-        render={ListItemAccordion}
+        render={({ data }) => {
+          return (
+            <ListItemAccordion data={data} key={data.id}>
+              <Details {...data} name={null} className="widget" />
+              <Map pointer={data} className="widget" />
+            </ListItemAccordion>
+          );
+        }}
       />
     );
   }

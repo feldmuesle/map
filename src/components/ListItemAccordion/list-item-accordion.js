@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Details from '../Details/details';
-import Map from '../Map/map';
 
-function ListItemAccordion({ data }) {
+function ListItemAccordion({ data, children }) {
   const [isOpen, setIsOpen] = useState(false);
   const { id, name, cuisine, availability } = data;
 
@@ -18,12 +16,7 @@ function ListItemAccordion({ data }) {
         <span className="item-info__cuisine">{cuisine}</span>
         <span className="item-info__availability">{availability}</span>
       </div>
-      {isOpen && (
-        <div className="list-item__details">
-          <Details {...data} name={null} className="widget" />
-          <Map pointer={data} className="widget" />
-        </div>
-      )}
+      {isOpen && <div className="list-item__details">{children}</div>}
     </li>
   );
 }
@@ -35,6 +28,10 @@ ListItemAccordion.propTypes = {
     cuisine: PropTypes.string,
     availability: PropTypes.string,
   }),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export default ListItemAccordion;
