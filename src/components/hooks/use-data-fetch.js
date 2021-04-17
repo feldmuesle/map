@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { default as restaurants } from "../../data/restaurants.json";
+import { useState, useEffect } from 'react';
+import { default as restaurants } from '../../data/restaurants.json';
 
 function useDataFetch(url, options) {
   const [response, setResponse] = useState(null);

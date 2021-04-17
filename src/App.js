@@ -1,4 +1,10 @@
+import React, { useState } from 'react';
 import setupIcons from './setup-icons';
+import useDataFetch from './components/hooks/use-data-fetch';
+import List from './components/List/list';
+import Details from './components/Details/details';
+import Map from './components/Map/map';
+import './App.css';
 
 setupIcons();
 
