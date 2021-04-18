@@ -8,6 +8,10 @@
   margin: 10px;
 }
 
+.desktop-list .list-item-info {
+  padding: 10px 15px;
+}
+
 .desktop-list__list--selected.widget,
 .desktop-list__details--open .widget {
   margin: 10px 0;

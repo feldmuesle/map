@@ -1,8 +1,8 @@
 .list {
-  margin: 0;
   width: 100%;
-  list-style: none;
+  margin: 0;
   padding: 0;
-  cursor: pointer;
+  list-style: none;
   border: 1px solid #e5e5e5;
+  cursor: pointer;
 }
