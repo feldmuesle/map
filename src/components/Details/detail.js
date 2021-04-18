@@ -11,19 +11,21 @@ function Detail({ label, text, icon, url }) {
           <FontAwesomeIcon icon={icon} />
         </span>
       )}
-      {label && <span className="detail__label">{`${label}: `}</span>}
-      {url ? (
-        <a
-          className="detail__link"
-          href={url}
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          {text || url}
-        </a>
-      ) : (
-        <span className="detail__text">{text || 'Not available'}</span>
-      )}
+      <div>
+        {label && <span className="detail__label">{`${label}: `}</span>}
+        {url ? (
+          <a
+            className="detail__link"
+            href={url}
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            {text || url}
+          </a>
+        ) : (
+          <span className="detail__text">{text || 'Not available'}</span>
+        )}
+      </div>
     </div>
   );
 }

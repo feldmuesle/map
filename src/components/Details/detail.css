@@ -1,11 +1,24 @@
 .detail {
   margin: 5px 0;
+  font-size: 0.875rem;
+  display: flex;
 }
 
 .detail__icon {
-  margin-right: 5px;
+  margin-right: 3px;
   width: 18px;
   display: inline-block;
-  color: #919191;
+  color: #585858;
   text-align: center;
+}
+
+.detail__label {
+  font-weight: 600;
+  font-family: 'Roboto';
+  color: #585858;
+}
+
+.detail__link {
+  word-break: break-all;
+  text-decoration: none;
 }
