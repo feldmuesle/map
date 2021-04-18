@@ -46,11 +46,12 @@ It explores how to decouple the basic functionality (displaying data with detail
 
 - As a user I want to see a list of records with basic information (Name, State and some other property that is relevant). State can be one of four different states.
 - As a user I want to see detailed information on a specific record. Detailed information contains additional information and could be anything, but must include geographical coordinates.
-- As a user I want detailed information to show the location of the r
+- As a user I want detailed information to show the location of the record on a map.
 
 ### Data
 
-The current data used in the project is about restaurants. However, by using render props, it is able to handle any data.\ One just needs to pass in corresponding components for list items and details.
+The current data used in the project is about restaurants. However, by using render props, it is able to handle any data.\
+One just needs to pass in corresponding components for list items and details.
 
 ### Screen sizes
 
