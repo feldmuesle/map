@@ -10,13 +10,23 @@ function Details({
   lastMentioned,
   className,
 }) {
+  function formatDate(timeStamp) {
+    const date = new Date(timeStamp);
+
+    return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+  }
+
   return (
     <div className={className ? `details ${className}` : 'details'}>
       {name && <h3 className="details__heading">{name}</h3>}
       <Detail label="Address" text={address} icon="map-marker-alt" />
       <Detail label="Website" text={website} icon="home" url={website} />
       <Detail label="Last review" text={lastReview} icon="star" />
-      <Detail label="Opening hours" text={lastMentioned} icon="clock" />
+      <Detail
+        label="Last mentioned"
+        text={formatDate(lastMentioned)}
+        icon="clock"
+      />
     </div>
   );
 }
@@ -30,7 +40,7 @@ Details.propTypes = {
   address: PropTypes.string.isRequired,
   website: PropTypes.string.isRequired,
   lastReview: PropTypes.string.isRequired,
-  lastMentioned: PropTypes.string.isRequired,
+  lastMentioned: PropTypes.number.isRequired,
   className: PropTypes.string,
 };
 
