@@ -50,8 +50,7 @@ It explores how to decouple the basic functionality (displaying data with detail
 
 ### Data
 
-The current data used in the project is about restaurants. However, by using render props, it is able to handle any data.\
-One just needs to pass in corresponding components for list items and details.
+The current data used in the project is about restaurants. However, by using render props, it is able to handle any data. One just needs to pass in corresponding components for list items and details.
 
 ### Screen sizes
 
