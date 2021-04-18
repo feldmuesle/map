@@ -39,32 +39,21 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## What is it about?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This little project is about displaying data in detail and showing the location of each record on a map.
+It explores how to decouple the basic functionality (displaying data with details & showing location on a map) from the actual data and aims at solving the following user stories:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- As a user I want to see a list of records with basic information (Name, State and some other property that is relevant). State can be one of four different states.
+- As a user I want to see detailed information on a specific record. Detailed information contains additional information and could be anything, but must include geographical coordinates.
+- As a user I want detailed information to show the location of the r
 
-### Code Splitting
+### Data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The current data used in the project is about restaurants. However, by using render props, it is able to handle any data. One just needs to pass in corresponding components for list items and details.
 
-### Analyzing the Bundle Size
+### Screen sizes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To satisfy different screen sizes, the project contains two solutions.
+On smaller screens the list-items are selfcontained accordions that expand/hide the details when clicked within the list.
+On bigger screens, the details display to the right of the list when a list item gets clicked.
