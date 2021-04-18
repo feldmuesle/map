@@ -23,11 +23,12 @@ ListItemAccordion.propTypes = {
     name: PropTypes.string,
     cuisine: PropTypes.string,
     availability: PropTypes.string,
-  }),
+  }).isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  render: PropTypes.func.isRequired,
 };
 
 export default ListItemAccordion;

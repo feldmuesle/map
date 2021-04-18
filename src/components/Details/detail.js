@@ -13,7 +13,12 @@ function Detail({ label, text, icon, url }) {
       )}
       {label && <span className="detail__label">{`${label}: `}</span>}
       {url ? (
-        <a className="detail__link" href={url} target="blank">
+        <a
+          className="detail__link"
+          href={url}
+          target="blank"
+          rel="noopener noreferrer"
+        >
           {text || url}
         </a>
       ) : (

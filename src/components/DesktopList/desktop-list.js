@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import List from '../List/list';
 import './desktop-list.css';
 
-function DesktopList({ classname, data, listItemComponent, render }) {
+function DesktopList({ data, listItemComponent, renderDetails }) {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleItemClick = (id) => {
@@ -23,7 +23,7 @@ function DesktopList({ classname, data, listItemComponent, render }) {
       />
       {selectedItem && (
         <div className={`desktop-list__details${selectedItem ? '--open' : ''}`}>
-          {render({ data: selectedItem })}
+          {renderDetails({ data: selectedItem })}
         </div>
       )}
     </div>
@@ -31,13 +31,13 @@ function DesktopList({ classname, data, listItemComponent, render }) {
 }
 
 DesktopList.defaultProps = {
-  className: null,
   data: [],
 };
 
 DesktopList.propTypes = {
-  className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
+  listItemComponent: PropTypes.func.isRequired,
+  renderDetails: PropTypes.func.isRequired,
 };
 
 export default DesktopList;

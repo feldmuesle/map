@@ -27,6 +27,7 @@ List.propTypes = {
   data: PropTypes.array.isRequired,
   onItemClick: PropTypes.func,
   selectedId: PropTypes.string,
+  render: PropTypes.func.isRequired,
 };
 
 export default List;

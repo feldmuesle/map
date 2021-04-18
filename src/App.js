@@ -16,23 +16,22 @@ setupIcons();
 function App() {
   const [listData, isLoading, error] = useDataFetch();
   const [screenSize] = useScreenSize();
+  const isDesktop = screenSize > 767;
 
-  function handleScreenSize() {
-    if (screenSize > 700) {
+  function renderForScreenSize() {
+    if (isDesktop) {
       return (
         <DesktopList
           data={listData}
           listItemComponent={(props) => (
             <ListItem key={props.data.id} {...props} render={ListItemInfo} />
           )}
-          render={({ data }) => {
-            return (
-              <>
-                <Details {...data} className="widget" />
-                <Map pointer={data} className="widget" />
-              </>
-            );
-          }}
+          renderDetails={({ data }) => (
+            <>
+              <Details {...data} className="widget" />
+              <Map pointer={data} className="widget" />
+            </>
+          )}
         />
       );
     }
@@ -41,24 +40,22 @@ function App() {
       <List
         data={listData || []}
         className="widget"
-        render={({ data }) => {
-          return (
-            <ListItemAccordion data={data} key={data.id} render={ListItemInfo}>
-              <Details {...data} name={null} className="widget" />
-              <Map pointer={data} className="widget" />
-            </ListItemAccordion>
-          );
-        }}
+        render={({ data }) => (
+          <ListItemAccordion data={data} key={data.id} render={ListItemInfo}>
+            <Details {...data} name={null} className="widget" />
+            <Map pointer={data} className="widget" />
+          </ListItemAccordion>
+        )}
       />
     );
   }
 
   return (
-    <div>
+    <div className="app">
       {isLoading ? (
         <span className="loading">Is loading...</span>
       ) : (
-        handleScreenSize()
+        renderForScreenSize()
       )}
       {error && <div>{`We have a problem: ${error}`}</div>}
     </div>
