@@ -1,5 +1,6 @@
 import React from 'react';
 import setupIcons from './setup-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useDataFetch from './components/hooks/use-data-fetch';
 import useScreenSize from './components/hooks/use-screen-size';
 import DesktopList from './components/DesktopList/desktop-list';
@@ -53,7 +54,9 @@ function App() {
   return (
     <div className="app">
       {isLoading ? (
-        <span className="loading">Is loading...</span>
+        <span className="loading">
+          <FontAwesomeIcon icon="spinner" className="fa-spin" />
+        </span>
       ) : (
         renderForScreenSize()
       )}

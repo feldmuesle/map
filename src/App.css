@@ -3,6 +3,15 @@
   background-color: #fcfcfc;
 }
 
+.loading {
+  display: block;
+  width: 100%;
+  margin: 100px auto;
+  text-align: center;
+  font-size: 3rem;
+  color: #919191;
+}
+
 .widget {
   box-sizing: border-box;
   width: 100%;
