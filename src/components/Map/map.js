@@ -11,6 +11,7 @@ function Map({ defaultCenter, defaultZoom, pointer, className }) {
       <GoogleMapReact
         bootstrapURLKeys={{ key: mapKey }}
         defaultCenter={defaultCenter}
+        center={{ ...pointer }}
         defaultZoom={defaultZoom}
       >
         <Pointer {...pointer} />
@@ -24,7 +25,7 @@ Map.defaultProps = {
     lat: 47.31284201306256,
     lng: 12.11145268256571,
   },
-  defaultZoom: 3,
+  defaultZoom: 5,
   pointer: null,
   className: null,
 };
