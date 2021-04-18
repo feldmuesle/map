@@ -41,7 +41,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## What is it about?
 
-This little project is about displaying data in detail and showing the location of each record on a map.
+This little project is about displaying data in detail and showing the location of each record on a map.\
 It explores how to decouple the basic functionality (displaying data with details & showing location on a map) from the actual data and aims at solving the following user stories:
 
 - As a user I want to see a list of records with basic information (Name, State and some other property that is relevant). State can be one of four different states.
@@ -50,10 +50,15 @@ It explores how to decouple the basic functionality (displaying data with detail
 
 ### Data
 
-The current data used in the project is about restaurants. However, by using render props, it is able to handle any data. One just needs to pass in corresponding components for list items and details.
+The current data used in the project is about restaurants. However, by using render props, it is able to handle any data.\ One just needs to pass in corresponding components for list items and details.
 
 ### Screen sizes
 
-To satisfy different screen sizes, the project contains two solutions.
-On smaller screens the list-items are selfcontained accordions that expand/hide the details when clicked within the list.
+To satisfy different screen sizes, the project contains two solutions.\
+On smaller screens the list-items are selfcontained accordions that expand/hide the details when clicked within the list.\
 On bigger screens, the details display to the right of the list when a list item gets clicked.
+
+### Prerequisites
+
+This project uses Google Maps, which requires an API key.\
+Just replace the placerholder text with your private API key in `/config/keys.js`
